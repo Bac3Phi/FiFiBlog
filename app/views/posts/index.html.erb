@@ -39,7 +39,7 @@
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login.html">Log in</a></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 					
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -51,9 +51,11 @@
       <div class="col-md-4 profile col-sm-12 col-xs-12">
         <div class="profile-centered">
           <div class="profile-content">
-            <%= image_tag "cumeo.jpg", class: "img-circle profile-image" %>
-            <h4>Pham Nhat Phi</h4>
-            <p>Ruby Internship @NEOLAB</p>
+            <%= image_tag current_user.image_url, class: "img-circle profile-image" %>
+            <h4>
+             <%= current_user.name %>
+            </h4>
+            <p><%= current_user.email %></p>
             <hr class="hidden-sm hidden-xs">
             <p>Share this page:</p> 
             <ul class="clearfix">
